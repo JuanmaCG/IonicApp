@@ -15,6 +15,8 @@ public class PeliculaDTO {
 	
 	private double rating;
 	
+	public PeliculaDTO() {}
+	
 	public PeliculaDTO(String titulo, String director, String argumento, String poster, Date fecha, double rating) {
 		super();
 		this.titulo = titulo;

@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jacaranda.dto.UserDTO;
+import com.jacaranda.entities.Pelicula;
 import com.jacaranda.entities.Role;
 import com.jacaranda.entities.RoleName;
 import com.jacaranda.entities.User;
@@ -40,11 +41,12 @@ import com.jacaranda.message.response.ResponseMessage;
 import com.jacaranda.repositories.IRoleRepository;
 import com.jacaranda.repositories.IUserRepository;
 import com.jacaranda.security.JwtProvider;
+import com.jacaranda.services.UserServiceImp;
 
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:8100")
 public class UserController {
 
 	@Autowired
@@ -52,7 +54,7 @@ public class UserController {
 
 	@Autowired
 	IUserRepository userRepository;
-
+	
 	@Autowired
 	IRoleRepository roleRepository;
 
@@ -76,7 +78,7 @@ public class UserController {
 		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getUsername(), userDetails.getAuthorities()));
 	}
 	
-	@PostMapping("/signup")
+	@PostMapping("/registro")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody RegisterForm signUpRequest) {
 		System.out.println(signUpRequest);
 		if (userRepository.existsByUsuario(signUpRequest.getUsername())) {
@@ -117,9 +119,11 @@ public class UserController {
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}
 
-	@GetMapping("/admin")
-	@PreAuthorize("hasRole('ADMIN')")
-	public String adminAccess() {
-	  return ">>> Admin Contents";
-	}
+	
+	
+//	@GetMapping("/admin")
+//	@PreAuthorize("hasRole('ADMIN')")
+//	public String adminAccess() {
+//	  return ">>> Admin Contents";
+//	}
 }

@@ -20,6 +20,7 @@ public class Comentario {
 	private String comentario;
 	private double userRating;
 	private Date fecha;
+	private String username;
 	
 	@ManyToOne
 	@JoinColumn(name = "pelicula")
@@ -27,12 +28,13 @@ public class Comentario {
 	
 	public Comentario() {}
 	
-	public Comentario(String comentario, double userRating, Pelicula pelicula, Date fecha) {
+	public Comentario(String comentario, double userRating, Pelicula pelicula, Date fecha, String username) {
 		super();
 		this.comentario = comentario;
 		this.userRating = userRating;
 		this.fecha = fecha;
 		this.pelicula = pelicula;
+		this.username = username;
 	}
 
 	public String getComentario() {
@@ -53,6 +55,14 @@ public class Comentario {
 	
 
 
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public Pelicula getPelicula() {
 		return pelicula;

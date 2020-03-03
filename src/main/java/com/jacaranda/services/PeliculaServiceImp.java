@@ -65,9 +65,8 @@ public class PeliculaServiceImp implements PeliculaService {
 	
 
 	@Override
-	public PeliculaDTO findByTitulo(String titulo) {
-		// TODO Auto-generated method stub
-		return null;
+	public Pelicula findByTitulo(String titulo) {
+		return peliRepo.findByTitulo(titulo);
 	}
 
 }

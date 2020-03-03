@@ -24,14 +24,14 @@ public class ComentarioServiceImp implements ComentarioService{
 		List<ComentarioDTO> comentariosDTO = new ArrayList<ComentarioDTO>();
 		for(Comentario comentario : comentarios) {
 			
-			comentariosDTO.add(new ComentarioDTO(comentario.getId(), comentario.getComentario(), comentario.getUserRating(), comentario.getPelicula(), comentario.getFecha()));
+			comentariosDTO.add(new ComentarioDTO(comentario.getId(), comentario.getComentario(), comentario.getUserRating(), comentario.getPelicula(), comentario.getFecha(), comentario.getUsername()));
 		}
 		return comentariosDTO;
 	}
 
 	@Override
 	public void addComentario(ComentarioDTO comentarioDTO) {
-		Comentario comentario = new Comentario(comentarioDTO.getComentario(), comentarioDTO.getUserRating(), comentarioDTO.getPelicula(), comentarioDTO.getFecha());
+		Comentario comentario = new Comentario(comentarioDTO.getComentario(), comentarioDTO.getUserRating(), comentarioDTO.getPelicula(), comentarioDTO.getFecha(), comentarioDTO.getUsername());
 		comentarioRepo.save(comentario);		
 		
 	}

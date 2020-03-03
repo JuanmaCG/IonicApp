@@ -11,19 +11,20 @@ public class ComentarioDTO {
 	private String comentario;
 	private double userRating;
 	private Date fecha;
-	
+	private String username;
 
 	private Pelicula pelicula;
 	
 	public ComentarioDTO() {}
 	
-	public ComentarioDTO(Integer id, String comentario, double userRating, Pelicula pelicula, Date fecha) {
+	public ComentarioDTO(Integer id, String comentario, double userRating, Pelicula pelicula, Date fecha, String username) {
 		super();
 		this.id = id;
 		this.comentario = comentario;
 		this.userRating = userRating;
 		this.fecha = fecha;
 		this.pelicula = pelicula;
+		this.username = username;
 	}
 
 	public String getComentario() {
@@ -44,6 +45,14 @@ public class ComentarioDTO {
 	
 
 
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public Pelicula getPelicula() {
 		return pelicula;
@@ -66,7 +75,10 @@ public class ComentarioDTO {
 		return "Comentario [comentario=" + comentario + ", userRating=" + userRating + "]";
 	}
 
-	public Integer getId() {
-		return id;
+	
+	public void setId(Integer id) {
+		this.id = id;
 	}
+	
+	
 }

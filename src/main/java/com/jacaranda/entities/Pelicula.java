@@ -38,6 +38,8 @@ public class Pelicula {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pelicula")
 	private Set<Comentario> comentario;
 	
+	public Pelicula() {}
+	
 	public Pelicula(String titulo, String director, String argumento, String poster, Date fecha, double rating) {
 		super();
 		this.titulo = titulo;

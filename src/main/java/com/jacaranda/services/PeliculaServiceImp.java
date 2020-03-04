@@ -57,7 +57,7 @@ public class PeliculaServiceImp implements PeliculaService {
 		List<PeliculaDTO> peliculasDTO = new ArrayList<PeliculaDTO>();
 		for(Pelicula pelicula : peliculas) {
 			
-			peliculasDTO.add(new PeliculaDTO(pelicula.getTitulo(), pelicula.getArgumento(), pelicula.getPoster(), pelicula.getDirector(), pelicula.getFecha(), pelicula.getRating()));
+			peliculasDTO.add(new PeliculaDTO(pelicula.getTitulo(), pelicula.getDirector(), pelicula.getArgumento(), pelicula.getPoster(), pelicula.getFecha(), pelicula.getRating()));
 		}
 		return peliculasDTO;
 	}
